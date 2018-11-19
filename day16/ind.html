@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin:0;           /*去除边框*/
+        }
+        .left{
+            float:left;
+        }
+        .right{
+            float:right;
+        }
+        .pg-header{
+            line-height:48px;
+            height: 48px;
+            background-color:#2459a2;
+            color:white;
+        }
+        .pg-content .menu{
+            position:absolute;
+            background-color: #dddddd;
+            left:0;
+            bottom:0;
+            width: 200px;
+            top: 48px;
+        }
+        .pg-content .content{
+            z-index:10;
+            position:absolute;
+            top: 48px;
+            left: 200px;
+            right:0;
+            bottom:0;
+            min-width: 800px;
+            overflow:auto;
+        }
+        .pg-header .logo{
+            width:200px;
+            background-color:cadetblue;
+            text-align:center;
+        }
+        .pg-header .user{
+            width:160px;
+            background-color:wheat;
+            /*text-align:center;*/
+            height: 48px;
+        }
+        .pg-header .user:hover{
+            background-color:#396bb3;
+        }
+        .pg-header .user .a img{
+            height: 40px;
+            width: 40px;
+            margin-top: 4px;
+            border-radius:50%;
+        }
+        .pg-header .user .a .u-nick {
+            padding:0 20px 0 0;
+            float:right;
+            right:200px;
+
+        }
+        .pg-header .user .b{
+            z-index:20;
+            position:absolute;
+            top: 48px;
+            right: 44px;
+            background-color:#dddddd;
+            width: 150px;
+            display:none;
+        }
+        .pg-header .user .b a{
+            display:block;
+        }
+        .pg-header .user:hover .b{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <div class="pg-header">
+        <div class="logo left">
+            moke
+        </div>
+        <div class="user right">
+            <a class="a" href="#">
+                <img src="1.jpg">
+                <span class="u-nick" id="usernick">moke很无聊</span>
+            </a>
+            <div class="b">
+                <a>我的资料</a>
+                <a>注销</a>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="pg-content">
+        <div class="menu left">
+            <p style="position:absolute;margin:0;left:5px;top: 10px;">
+
+He who fights with monsters should look to
+it that he himself does not become a monster. And if you gaze long into an
+abyss, the abyss also gazes into you.He who fights with monsters should be
+careful lest he thereby become a monster. And if thou gaze long into an abyss,
+the abyss will also gaze into thee.Beware that, when fighting monsters, you yourself do not become a
+monster... for when you gaze long into the abyss, the abyss gazes also into
+you.                                                    ——Friedrich Nietzsche
+            当你凝望深渊的时候深渊也在凝望你
+        </div>
+        <div class="content left">
+            <div style="background-color:purple;">
+                <pre style="color:red;margin:0;">
+
+                                     $$$$
+                               $$d0x0o#uxx0z#$$
+                            $WcxxxxW   "kx}  "hd$
+                          $qxxxxxxJ     "c     Wxd$
+                        $#xxxxxxxch      #      cxu$
+                       $uxxxxxxxxk>    p"-  h}  #xxxB
+                     $0xxxxxxxxxx#    # n "h I# nxxxx$
+                    $Yxxxxxxxxxxx#    I  }C     -qcxxx$
+                   $Yxxxxxxxxxxxq#(      "-     z  -occ$
+                   $xxxxxxxxxxc#(Ip      ( COC( h    pu$
+                  $xxxxxxxxxuh    ">     n}p zk8"     "8$$$
+                  mxxxxxxxxk"      >C  ff &\  kk    }#>#   $
+                 $xxxxxxxx# -Cp}          ok\kkk> C(       "$
+                 cxxxxxxxW       }zh(     @kkkko >          $
+                $xxxxxxxq             }h   8kko(            p
+                mxxxxxxx>                    -    #pnf----I p
+               $xxxxxxuW   >nn---I           O              $
+               $xxxxxx#"              ->     p             I
+               Wxxxxxx>                      n-   OhnI     $
+               qxxxxx0     }&%%%pOn}I  ((    -n        }Oh$
+               Jxxxxx#    "kkkkkkka8%*aW%pn- -n        }CI$
+               Jxxxxxp    -kkkkkWB8akkkkkkoWBhp}I    >z#  $
+               cxxxxx}    nk*%okkkkkkkkkkkkkkkkkkkkkkkk"  $
+               Jxxxxx     nkkkkkkkkkkkkkkkkkkkkkkkkkkk%   $
+               Jxxxxx     Ikkkkkkkkkkkkkkkkkkkkkkkkkkk-
+               qxxxxx      akkkkkkkkkkkkkkkkkkkkkkkkkB   f
+               Wxxxxx      8kkkaW%8#kkkkkkkkkkkkkkkkh"   8
+               $xxxxx      Ik&YffffffQBhkkkkkkkkkkkkO   z$
+               $xxxxx(      $ffffffffffx@kkkkkkkkkkB    $
+                mxxxx#      "ufffffffffffbkkkkkkkk#    I
+                $xxxxY       nffffffffffffMkkkkkka"    8
+                 uxxxxf       hffffffffffffWkkkka>    I
+                 qxxxx#       "Qfffffffffff%kkkkW     O
+                 $xxxxcp       "bffffffffffckkk8     "$
+                  dxxxxc         omfffffffffa8C      $
+                  $xxxxxW          CQffffffQz       8
+                   $xxxxx}           >hbpo(        8
+                    #xxxxY"      -(O%$}  IBkkkkkkkoB
+                     0xxxx0 >O%*kkkkB      k#j>Ij#kk$
+                     $Jxxm8akkkkoWW&"       Jwj1j0C($
+                      $$okkk*&Lxxxxd        h_IIIIM $
+                      $Wkh8qxxxxxxx#        OIIXbIX *
+                       $mxxxxxxxxxxq        aII[wI# z
+                        cxxxxxxxxxxxI       uIII\j  -
+                        Jxxxxxxxxxxxp      fhIII_h  >
+                        kxxxxxxxxxxx0p    n"  -(
+                        $xxxxxxxxxJh  >p8#phpCnnnCppI$    $$$
+                        $xxxxxxuWcx  pf             p$ $}    n$
+                        $xxxJ#dxxx0  n              n$8       f
+                         xxxxxxxxx#  p              z$         $
+                         Jxxxxxxxx#  O              h"         h
+                         kxxxxxxxx#   "            "8          O
+                         Bxxxxxxxxm   p            pI          p
+                     $$$ $xxxxxxxxxI   h         "O}           8
+                    #kkk$$xxxxxxxxx8    "hn- --zO  $           $
+                   $kkkk%$xxxxxxxxxJ      -npnn-  fh           $
+                   $kkkkM$xxxxxxxxxxk            CxC          }
+                    akkk$$xxxxxxxxxxxq>         Wxxz          $
+                    $$$$ Bxxxxxxxxxxxxx8}    fhcxxxh         I
+                         qxxxxxxxxxxxxxxxxJYxxxxxxxm         $
+                         JxxxxxxxxxxxxxxxxxxxxxxxJd#(       h
+                       $$xxxxxxxxxxxxxxxxxxxJW$$    $-     8
+                      h" xxxxxxxxxxxxxxxxc@$          $pp$$
+                     $   uxxxxxxxxxxxxx0$
+                     O   #xxxxxxxxxxxJ$
+                     >   >xxxxxxxxxu$
+                          Cxxxxxxuk$                                            
+                           #xxxxx8$
+                            (ocJ$
+                     -          8
+                     O
+                     $           $
+                      O          $
+                       $"       n
+                        $*I    p$
+                           $$$
+                                </font></pre>
+            </div>
+        </div>
+    </div>
+    <div class="pg-footer"></div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin:0;           /*去除边框*/
+        }
+        .left{
+            float:left;
+        }
+        .right{
+            float:right;
+        }
+        .pg-header{
+            height: 48px;
+            background-color:#2459a2;
+            color:white;
+        }
+        .pg-content .menu{
+            position:fixed;
+            background-color: #dddddd;
+            left:0;
+            bottom:0;
+            width: 200px;
+            top: 48px;
+        }
+        .pg-content .content{
+            position:fixed;
+            background-color:purple;
+            top: 48px;
+            left: 200px;
+            right:0;
+            bottom:0;
+            overflow:auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="pg-header"></div>
+    <div class="pg-content">
+        <div class="menu left">asdf</div>
+        <div class="content left">
+            <p>sdasdf</p><p>sdasdf</p><p>sdasdf</p><p>sdasdf</p><p>sdasdf</p>
+            <p>sdasdf</p><p>sdasdf</p><p>sdasdf</p><p>sdasdf</p><p>sdasdf</p>
+            <p>sdasdf</p><p>sdasdf</p><p>sdasdf</p><p>sdasdf</p><p>sdasdf</p>
+            <p>sdasdf</p><p>sdasdf</p><p>sdasdf</p><p>sdasdf</p><p>sdasdf</p>
+            <p>sdasdf</p><p>sdasdf</p><p>sdasdf</p><p>sdasdf</p><p>sdasdf</p>
+        </div>
+    </div>
+    <div class="pg-footer"></div>
+</body>
+</html>

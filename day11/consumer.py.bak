@@ -1,0 +1,20 @@
+import pika,time
+
+connection = pika.BlockingConnection(
+pika.ConnectionParameters('localhost'))
+	
+channel = connection.channel()
+channel.queue_declare(queue='hello')
+
+def callback(ch,method,properties,body):
+	print("-->",ch,method,properties)
+	time.sleep(10)
+	print("Received %r"% body)
+
+channel.basic_consume(
+					callback,
+					queue='hello',
+					#no_ack=True
+					)
+print("waiting for messages")
+channel.start_consuming()

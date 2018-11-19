@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .pg-header{
+            height:48px;
+            background-color:black;
+            color: #dddddd;
+            position:fixed;
+            right:0;
+            left:0;
+            top:0;
+        }
+        .pg-body{
+            background-color: #dddddd;
+            height:5000px;
+            margin-top:50px;
+        }
+    </style>
+</head>
+<body>
+    <div onclick="GoTop();" style="position:fixed;
+    background-color:forestgreen;
+    color:red;
+    bottom: 50px;
+    right: 50px;
+    ">返回顶部</div>
+
+
+    <div class="pg-header">头部</div>
+    <div class="pg-body">内容</div>
+
+    <script>
+        function GoTop(){
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+</html>

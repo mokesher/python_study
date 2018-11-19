@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+<form action="html5.html" methed="post">
+    账号:<input type="text"><br>
+    密码:<input type="password"><br>
+    性别:<input type="radio" name="sex" value="1">男
+        <input type="radio" name="sex" value="0">女
+    <br>
+    爱好:<input type="checkbox" name="likes[]"value="4"/>篮球
+    <input type="checkbox" name="likes[]"value="5"/>篮球
+    <input type="checkbox" name="likes[]"value="6"/>篮球
+    <input type="checkbox" name="likes[]"value="7"/>篮球
+    <br>
+    城市:<select name="city">
+    <option value="1">北京1</option>
+    <option value="2">北京2</option>
+    <option value="3">北京3</option>
+    <option value="4">北京4</option>
+    <option value="5">北京5</option>
+    </select>
+    <br>
+    个人简介:<textarea name="text"rows="5"cols="30"></textarea>
+    <br>
+    <input type="submit" value="搞定">
+    <input type="reset" value="重置">
+
+
+    <input type="button" onclick="alert('点个赞')"value="普通按钮">
+
+    <button>按钮</button>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,288 @@
+doctype对应关系
+html只有一个
+注释：<!--  -->
+
+标签分类：
+    自闭合
+        <meta charset="utf-8">
+    主动闭合
+        title>dada</title>
+head标签
+    <meta -> 编码，跳转，刷新，关键字，
+
+
+body标签
+    p标签，段落
+    br,换行
+        标签分为：
+            块级标签：div(白版），H（加大加粗），p标签（段落之间有间距）
+            行内标签：span(白版）
+        标签之间可以嵌套
+        存在意义：css,js
+    form表单
+	input系列
+		例：
+		<form action="http://localhost:8888/index">
+        <input type="text" name="user"/>
+        <input type="password" name="pwd"/>
+        <input type="submit" value="登录"/>
+    </form>
+	
+	input type='text' name属性,value=" "
+	input type='password' name属性,value=" "
+	input type='submit' value='提交'  按钮、表单
+	input type='button' value='登录'
+	
+	input type='radio'  value name相同则互斥
+	input type='checkbox' name
+			checked='checked'默认值
+		
+	文件上传	input type='file' name='fname' 依赖form表单的enctype="multipart/form-data"
+	重置	<input type="reset" value="重置"/>
+	输入框	<textarea name="meno">输入：</textarea>  name属性
+	select	name option value size muiltiple
+	<select name="city" size="8" multiple="multiple">
+	锚点
+	<a href='#i1'>ddd</a>
+	<div id="i1">ddddd</div>
+	列表
+	ul
+		li
+	ol
+		li
+	dl
+		dt
+		dd
+	表格
+		table
+			thead
+				tr
+					th
+			tbody
+				tr
+					th
+	colspan
+	rowspan
+	
+	label
+	fieldset
+		legend
+		
+css
+	标签选择器
+	div{
+	...}
+	所有div设置为此样式
+	
+	id选择器
+	#i1{
+            background-color: #2459a2;
+            height:50px;
+        }
+		
+	class选择器
+	.c1{
+            background-color: #2459a2;
+            height:50px;
+        }
+		
+			注释
+				/*  */
+	层级选择器
+		.c1 .c2 div{
+		}
+	组合选择器
+		#.c1,.c2,div{
+		}
+	属性选择器
+		[input type="text"]{..}
+		
+	ps	优先级 标签上style优先，就近,下面优先
+	
+	css样式写入单独文件
+		<link rel="stylesheet" href="..css"/>
+	边框
+		宽度，样式，颜色(border:1px dotted red;)
+		border-left
+		
+		height,width,
+		text-align：center水平方向居中
+		line-height,垂直居中根据标签高度
+		color,
+		font-size字体大小
+		font-weight字体加粗
+		
+	float
+		标签飘起来
+	
+	display
+		diaplay:none--让标签消失
+		display:inline\block
+			inline:默认自己有多少占多少
+			block可以设置无法设置高度，宽带，padding，margin
+		行内标签：无法设置高度，宽带，padding，margin
+		块级标签：设置高度，宽度，padding，margin
+	
+	
+	
+##############################################
+
+	1、css重用
+		<style>
+			.c{
+				共有
+			}
+			.c1{
+				独有
+			}
+			.c2{
+				独有
+			}
+		</style>
+		
+		<div class="c c1"></div>
+		<div class="c c1"></div>
+	2、自适应和改变大小变形
+		左右滚动条的出现
+		宽度、百分比
+		
+		页面最外层：像素的宽度
+		自适应：media
+	3、默认img标签，1px边框
+		img{
+		border:0;
+		}
+		
+css
+	position：fixed；固定在页面某个位置
+			  absolute绝对定位 	+ relative
+			  
+			  <div style="position:relative;">
+				<div style="position:absolute;top:0;left:0;"></div>
+			  </div>
+	opcity:0.5透明度
+	z-index:层级顺序
+	overflow:hidder,auto
+	hover:
+	
+	
+	background-image:url('image/1.jpg')
+	background-repeat:repeat-y;
+	background-position-x:
+	background 
+	
+	
+javascript
+	存在形式：
+		head
+		<script>
+			//
+		</script>
+		文件  .js
+			<script scr='文件路径'></script>
+		ps: js 代码需要放置在<body>标签内部最下方
+	注释
+		当行 /
+		多行 /*  */
+		
+		
+	变量：
+		name = 'moke'     #全局变量
+		var name = 'era'  #局部变量
+	数据类型：
+		数字：a=18;
+		字符串：
+			a = 'alex'
+			a.chartAt(索引位置)
+			a.substring(起始位置，结束位置)
+			a.lenght   获取当前字符串长度
+		数组
+			a = []
+		字典
+			a = {'k1':'v1','k2':'v2'}
+		布尔类型
+			小写
+			if
+		for 循环
+			循环的元素是索引
+				a = [1,2,3,4]
+				for (var item in a){
+					console.log(item);}
+				0,1,2,4
+				console.log(a[item]);
+				
+			a = {'k1':'v1','k2':'v2'}
+			for (var item in a){
+					console.log(item);}
+			2.
+				for(var i=0;i<10;i++){
+				}
+				
+				a = [1,2,4,5]
+				for (var i=0;i<a.length;i++){
+				}
+				
+				不支持字典循环
+			
+			条件语句
+				if
+				==	值相等
+				=== 值和类型相等
+				
+				if(1==1 && 2==2)	和
+				if(1==1 || 2==2)	或
+				
+	函数：
+		function 函数名(a,b,c){
+		}
+		函数名(a,b,c)
+			
+	
+			
+		定时器
+			setInterval("代码",time)
+			滚动条：
+				function func(){
+					var tag = document.getElementById('id');
+					var content = tag.innerText;
+					var f = content.charAt(0);
+					var l = content.substring(1,content.length);
+					var new_content = l + f;
+					tag.innerText = new_content;}
+			
+	ps:
+	dom
+		1.找到标签
+			获取单个元素：document.getElementById('i1')
+			获取多个元素(列表)：document.getElementsByTagName('div')
+			..			  document.getElementsByClassName('c1')
+			a.直接找
+				document.getElementById
+				document.getElementByName
+				document.getElementByClassName
+				document.getElementByTagName
+			b.间接
+				tag = document.getElementById('id')
+				
+				parentElement		//父节点标签元素
+				chileren			//所有子节点
+				firstElementChild	//第一个子标签元素
+				lastElementSibling  //下一个兄弟标签元素
+				previousElementSibling //上一个兄弟标签元素
+				
+
+		2.操作标签
+			a.innerText
+				获取标签中文本内容
+				标签：innerText
+				对标签文本重新赋值
+				innerText = ""
+			b. className
+				tag.className = 直接整体操作
+				tag.classList.add('样式名')  添加指定样式
+				tag.classList.remove('样式名')	删除指定样式
+				
+				
+				
+				
+				

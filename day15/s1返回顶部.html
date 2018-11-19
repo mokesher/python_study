@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div onclick="go();" style="width:50px;height:50px;
+        background-color:black;
+        color:white;
+        position:fixed;
+        bottom:20px;
+        right:20px;
+        ">返回顶部
+    </div>
+
+    <div style="height:5000px;background-color:#dddddd;">
+        <div style="position:relative;
+            width:500px;
+            height:200px;
+            border:1px solid red;
+            margin:0 auto;">
+            <div style="position:absolute;
+                left:0;
+                bottom:0;
+                width:50px;
+                height:50px;
+                background-color:
+                black;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function go() {
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+</body>
+</html>

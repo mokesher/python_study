@@ -1,0 +1,207 @@
+CSS
+	position
+	background
+	text-align
+	margin
+	padding
+	font-size
+	z-index
+	over-flow
+	:hover
+	opacity
+	float(clear:both)
+	line-height
+	border
+	color
+	display
+	
+	补充:页面布局
+		主站—
+			<div class='pg-header'>
+				<div style="width:980px;margin:0 auto;">
+					内容
+				</div>
+				
+				
+				
+		后台管理布局
+			fixed --永远固定在窗口的位置
+			relative  --单独无意义
+			absolute --第一次定位，可以在指定位置，滚动时不在了
+			
+			
+		a.左侧滚动菜单跟随滚动条
+
+		b.左侧以及上不动		*****
+	
+	6、for循环
+	
+			for(var item in [1,2,3])}
+				console.log(item)
+			}
+			var a = [1,2,3]
+			for(var i=0;i<a.length;i++){
+			}
+		
+		while(条件){
+		}
+		
+	7、条件语句
+		if(){
+		}
+		else if(){
+		}
+		else{
+		}
+		
+		
+		switch(name){
+			case '1':
+				age = 1;
+				break;
+			case '2':
+				age =2;
+				break;
+			default:
+				age =3;
+		}
+	
+	8、函数
+		function func(arg){
+			return arg+1;
+		}
+		var result = func(1)
+		console.log(result)
+		
+		匿名函数：
+			setInterval(执行函数，时间5000)
+			setInterval("func()",5000)
+			setInterval(function(){
+				console.log(123);
+			},5000)
+			
+		自执行函数(创建函数自动执行):
+			function func(arg){
+				console.log(arg);
+			}
+			//func(1)
+			
+			(function(arg){
+				console.log(arg);
+			}(1)
+			
+	9、序列化
+		JSON.stringify()	将对象转换为字符串
+		JSON.parse()	将字符串转换为对象类型
+	10、转义
+		客户端(cookie)  =>服务器端
+		将数据经过转义后，保存在cookie
+	11、eval
+		python:
+			val = eval(表达式)
+				exec(执行代码)
+		javascript:
+			eval
+	12、时间
+		data对象
+		var d = new Date()
+		d.get
+		d.set
+		
+		
+		
+	13、作用域
+			其他语言：以代码块作为作用域
+			public void func(){
+				if(true){
+					string name = 'moke';
+					console.writeline(name);
+				}
+			}
+			func()
+			
+			JavaScript：函数作为作用域
+			
+				function func(){
+					if(1==1){
+						var name = 'moke';
+					}
+					console.log(name);
+				}
+				func()
+		*********2函数的作用域在函数未被调用之前，已经创建****************
+		
+		function func(){
+			if(1==1){
+				var name = 'moke';
+			}
+			console.log(name);
+		}
+		
+		***********3函数的作用域存在作用域链，也是在被调用之前创建***************
+	
+		function fun(){
+				var so = 'fads';
+			function inner(){
+				var so = 'mokek';
+				console.log(so);
+			}
+			inner()
+		}
+		func()
+		*************4函数内局部变量提前声明**********************
+		
+		function func(){
+			console.log(xx);
+			var xx = 'safd'
+		}
+		func();
+		
+	14、javascript支持面向对象
+		
+		function Foo(n){
+			this.name = n;
+		}
+		var obj = new Foo('we');
+		
+		this代指对象(python self)
+		创建对象时，new函数()
+		
+		原型：
+			function Foo(n){
+				this.name = n;
+			}
+			
+			Foo.prototype = {
+				'sayname': function(){
+					console.log(this.name)
+				}
+			}
+			
+			obj1 = new Foo('we')
+			obj1.sayname()
+			
+			obj2 = new Foo('weds')
+			
+			
+			
+		
+DOM
+	查找
+		直接查找
+			var obj = document.getElementById('id')
+		间接查找
+			innerText	仅文本
+			innerHtml	全内容
+			value
+				input	value获取当前标签的值
+				select	获取选中的value值
+				textarea 	value获取当前标签的值
+				
+				
+		
+		
+		
+		
+		
+		
