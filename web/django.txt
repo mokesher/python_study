@@ -1,0 +1,46 @@
+django默认数据库-Mysqldb，py3不支持
+	pymysql替代
+	
+python manage.py makemigrations
+python manage.py migrate
+
+
+views.py
+	from django.shortcuts import HttpResponse, render, redirect
+	1.HttpResponse("Hello")
+	2.render(request, "html",{"k1":v1)
+	3.redirect("url")
+	
+	
+	# 书
+	class Book(models.Model):
+		id = models.AutoField(primary_key=True)  # 自增的ID主键
+		# 创建一个varchar(64)的唯一的不为空的字段
+		title = models.CharField(max_length=64, null=False, unique=True)
+		# 和出版社关联的外键字段
+		publisher = models.ForeignKey(to="Publisher")
+		
+	2. 查\增\删\改操作
+		1. 查
+			book_list = models.Book.objects.all()  --> 书对象的列表
+			
+		2. 增
+			new_book_obj = models.Book.objects.create(
+				title="新书的名字",
+				# publisher=publusher_obj,
+				publisher_id=7
+			)
+		3. 删除
+			models.Book.objects.get(id=10).delete()
+			
+		4. 修改
+			book_obj = models.Book.objects.get(id=9)
+			book_obj.title=request.POST.get("book_title")
+			book_obj.publisher_id=9
+			book_obj.save()
+			
+			
+	request.POST.getlist("book")
+		post提交的数据是多个值时，如：多选的checkbox，select
+	
+	
