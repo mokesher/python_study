@@ -42,5 +42,20 @@ views.py
 			
 	request.POST.getlist("book")
 		post提交的数据是多个值时，如：多选的checkbox，select
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	
 	
