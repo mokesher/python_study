@@ -45,12 +45,172 @@ views.py
 		
 		
 		
+		dispatch
+		
+		
+django添加装饰器
+	from django.utils.decorators import method_decorator
+	1.方法
+		class Foo(View):
+			@method_decorator(wraper)
+			def get(self,request):
+				pass
+			def post(self,request):
+				pass
+	2.类上
+		@method_decorator(wraper,name="dispatch")
+		class Foo(View):
+			def get(self,request):
+				pass
+			def post(self,request):
+				pass
+		
+	注意：csrf只能加在类上
+
+
+ORM
+	参数：
+		null = True
+		default = "xxx"
+		db_index = True
+		primary_key = True
+		unique=True
+		max_length=12
+		
+		多列索引
+			class Meta:
+				unique_together = {
+					('email','ctime'),
+				}
+				index_together = {
+					('email','ctime'),
+				}
 		
 		
 		
+	userinfo.objects.all()
+	userinfo.objects.all()[:]
+	userinfo.objects.all().count()
+	userinfo.objects.all().first()
+	userinfo.objects.all().update()
+	userinfo.objects.all().delete()
+	userinfo.objects.filter()
+		id__gt	>
+		id__lt	<
+		id__lte	<=
+		id__in=[1,2,3]
+		id__range=[1,2,3]
+		id__startwith=""
+		id__contains=""
+		
+	exclude()	排除
+	
+	
+	# 排序
+    # teacher_list = models.Teacher.objects.all().order_by('-id', "-teacher")
+    # print(teacher_list)
+    #分组
+    # from django.db.models import Count, Sum, Max, Min
+    # group = models.Teacher.objects.values("theclass_id").annotate(num=Count('teacher'))
+    # print(group)
+
+    # 高级操作
+    # F获取上次值，进行更新
+    from django.db.models import F, Q
+    obj = models.UserInfo.objects.all().update(age=F("age")-2)
+    # Q 复杂条件
+    # condition = {
+    #     'id':1,
+    #     'age':23,
+    # }
+    # obj = models.UserInfo.objects.filter(id=1, age=23)
+    # obj = models.UserInfo.objects.filter(**condition)
+    # models.UserInfo.objects.filter(Q(id=1) | Q(id=2))   #or
+    # models.UserInfo.objects.filter(Q(id=1) & Q(age=23))   #and
+    # extra
+    # obj = models.Teacher.objects.all().extra(
+    #     select={
+    #         "num":"select count(1) from blog_teacher where id<%s and id>%s"},
+    #         select_params=(15,2))
+    # for i in obj:
+    #     print(i.teacher,i.num)
+    # result = models.Teacher.objects.all().extra(
+    #     where=['blog_userinfo.id < %s '],
+    #     params=[20, ],
+    #     tables = ['blog_userinfo'],
+    #     select = {'n':"select count(1) from blog_userinfo"}
+    # )
+    # print(result)
+    # 原生sql
+    # from django.db import connection, connections
+    # cursor = connection.cursor()
+    # # cursor = connections['db2'].cursor()
+    # cursor.execute("select * from blog_teacher where id>%s", [2])
+    # row = cursor.fetchall()
+    # print(row)	
+		
+	
+	
+
+	# 跨表
+    #正向	xxx.filter("ut__title"="111").values("id","name","ut__title")
+	
+    t1 = models.Teacher.objects.all().first()       #1对象object
+    print("#1",t1.id,t1.teacher,t1.theclass_id)
+    t2 = models.Teacher.objects.filter(id=1).values("id","teacher","theclass__class_name")  #queryset [字典]
+    print("#2",t2)
+    t3 = models.Teacher.objects.values_list("id", "teacher", "theclass__class_name")  #queryset [元组]
+    print("#3", t3)
+
+    #反向	xxx.filter("表名称__title"="123").values("id","name","表名称__title")
+	
+    obj1 = models.Classes.objects.all().first()     #obj
+    # obj = obj1.teacher_set.all()
+    c1 = obj1.teacher_set.values()
+    print("c1",c1)
+    # print("obj1",[ (i.teacher,i.theclass_id) for i in obj ])
+
+    c2 = models.Classes.objects.filter(class_name="一班").values("class_name","teacher__id","teacher__teacher")
+    print("c2",c2)
+		
+	
 		
 		
-		
+many
+ # 1自定义
+    # obj = models.Author.objects.filter(name="alex").first()
+    # book_list = obj.many_set.all()
+    # for row in book_list:
+    #     print(row.book.title)
+
+    # book_list = models.Many.objects.filter(author__name="小明")
+    # for row in book_list:
+    #     print(row.book.title)
+
+    # book_list = models.Many.objects.filter(author__name="小明").values("book__title")
+    # for item in book_list:
+    #     print(item["book__title"])
+
+    book_list = models.Many.objects.filter(author__name="小明").select_related("book")
+    for obj in book_list:
+        print(obj.book.title)
+
+    # 2django自动生成
+    # obj = models.Author.objects.filter(name="alex").first()
+    # print(obj.id,obj.name)
+    # obj.book.add(1,2)
+    # obj.book.add(*[1,])
+    # obj.book.set([1,])    #重设
+    # obj.book.remove([1,])
+    # obj.book.clear()  #删除
+    # book_list = obj.book.all()
+
+    # 反向
+    # obj = models.Book.objects.filter(title="Java教程").first()
+    # v = obj.author_set.values()
+    # print(v)
+
+
 		
 		
 		

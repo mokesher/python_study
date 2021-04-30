@@ -1,0 +1,69 @@
+USE 数据库名 :选择要操作的Mysql数据库，使用该命令后所有Mysql命令都只针对该数据库。
+SHOW DATABASES: 列出 MySQL 数据库管理系统的数据库列表。
+SHOW TABLES: #显示指定数据库的所有表，使用该命令前需要使用 use命令来选择要操作的数据库。
+SHOW COLUMNS FROM 数据表: #显示数据表的属性，属性类型，主键信息 ，是否为 NULL，默认值等其他信息。
+create database testdb charset "utf8"; #创建一个叫testdb的数据库，且让其支持中文 
+drop database testdb; #删除数据库
+SHOW INDEX FROM 数据表:显示数据表的详细索引信息，包括PRIMARY KEY（主键）。
+
+mysql创建数据表
+	create table table_name(column_name column_type)
+ex:create table student(
+   stu_id INT NOT NULL AUTO_INCREMENT,
+   name CHAR(32) NOT NULL,
+   age  INT NOT NULL,
+   register_date DATE,
+   PRIMARY KEY ( stu_id )
+);
+实例解析：
+如果你不想字段为 NULL 可以设置字段的属性为 NOT NULL， 在操作数据库时如果输入该字段的数据为NULL ，就会报错。
+AUTO_INCREMENT定义列为自增的属性，一般用于主键，数值会自动加1。
+PRIMARY KEY关键字用于定义列为主键。 您可以使用多列来定义主键，列间以逗号分隔。
+
+MySQL 插入数据
+语法
+INSERT INTO table_name ( field1, field2,...fieldN )
+                       VALUES
+                       ( value1, value2,...valueN );
+	
+	
+MySQL 查询数据
+语法
+SELECT column_name,column_name
+FROM table_name
+[WHERE Clause]
+[OFFSET M ][LIMIT N]
+
+MySQL where 子句
+SELECT field1, field2,...fieldN FROM table_name1, table_name2...
+[WHERE condition1 [AND [OR]] condition2.....
+
+MySQL UPDATE 查询
+UPDATE table_name SET field1=new-value1, field2=new-value2
+[WHERE Clause]
+update student set age=22 ,name="Alex Li" where stu_id>3;
+
+MySQL DELETE 语句
+DELETE FROM table_name [WHERE Clause]
+delete from student where stu_id=5; 	
+
+MySQL LIKE 子句
+SELECT field1, field2,...fieldN table_name1, table_name2...
+WHERE field1 LIKE condition1 [AND [OR]] filed2 = 'somevalue'
+
+select *from student where name binary like "%Li";
+select *from student where name binary like  binary "%Li"; #只匹配大写
+
+MySQL 排序
+SELECT field1, field2,...fieldN table_name1, table_name2...
+ORDER BY field1, [field2...] [ASC [DESC]]
+使用 ASC 或 DESC 关键字来设置查询结果是按升序或降序排列。 默认情况下，它是按升序排列。
+select *from student where name like binary "%Li" order by stu_id desc;
+
+MySQL GROUP BY 语句　　
+SELECT column_name, function(column_name)
+FROM table_name
+WHERE column_name operator value
+GROUP BY column_name;				   
+
+
